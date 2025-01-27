@@ -1,3 +1,11 @@
-import test from "./fetchAPI.js";
+import fetchFilms from "./films.js";
 
-test();
+//Fetching html elements
+const filmsButton = document.querySelector(".navbar__button--films");
+const peopleButton = document.querySelector(".navbar__button--people");
+const planetsButton = document.querySelector(".navbar__button--planets");
+const vehiclesButton = document.querySelector(".navbar__button--vehicles");
+
+const main = document.querySelector(".main");
+
+fetchFilms();
