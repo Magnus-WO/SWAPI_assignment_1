@@ -9,5 +9,4 @@ const vehiclesButton = document.querySelector(".navbar__button--vehicles");
 
 const main = document.querySelector(".main");
 
-fetchFilms();
-console.log(filmPosters);
+filmsButton.addEventListener("click", fetchFilms);

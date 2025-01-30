@@ -1,27 +1,14 @@
 import filmPosters from "./filmsArray.js";
+import fetchFilms from "./filmArray.js";
 
 //Fetching html elements
 const filmsButton = document.querySelector(".navbar__button--films");
 const main = document.querySelector(".main");
 const showcase = document.querySelector(".showcase");
 
-//Fetching data from API
-const fetchFilms = async () => {
-  try {
-    const response = await fetch("https://swapi.dev/api/films");
-    const data = await response.json();
-    const films = data.results;
-    console.log(films);
-
-    render(films);
-  } catch (error) {
-    console.log(error, "Failed");
-  }
-};
-
 //Function for rendering
 
-const render = (films) => {
+export const render = (films) => {
   main.textContent = "";
   films.forEach((film) => {
     //Creating elements
@@ -30,29 +17,24 @@ const render = (films) => {
     const image = document.createElement("img");
     const episodeNr = document.createElement("h2");
     const producer = document.createElement("p");
+    const releaseDate = document.createElement("p");
 
     const crawlButton = document.createElement("button");
     const crawlContainer = document.createElement("div");
     const crawlText = document.createElement("p");
 
-    const charactersButton = document.createElement("button");
-    const charactersContainer = document.createElement("div");
-    const charactersList = document.createElement("ul");
-
     //Getting info
     title.textContent = film.title;
     filmPosters.forEach((poster) => {
       if (film.title === poster.title) {
-        console.log(poster.src);
-
         image.setAttribute("src", `${poster.src}`);
       }
     });
     episodeNr.textContent = `Episode ${film.episode_id}`;
     producer.textContent = `Produced by ${film.producer}`;
+    releaseDate.textContent = `Released ${film.release_date}`;
     crawlButton.textContent = "Opening Crawl";
     crawlText.textContent = film.opening_crawl;
-    charactersButton.textContent = "Characters";
 
     //Adding classes
     card.classList.add("card");
@@ -69,11 +51,8 @@ const render = (films) => {
 
     crawlButton.classList.add("card__crawl-button");
     crawlContainer.classList.add("card__crawl-container");
+    crawlContainer.classList.add("collapse");
     crawlText.classList.add("card__crawl-text");
-
-    charactersButton.classList.add("card__characters-button");
-    charactersContainer.classList.add("card__characters-container");
-    charactersList.classList.add("card__characters-text");
 
     //Appending
     main.append(card);
@@ -82,9 +61,17 @@ const render = (films) => {
       title,
       image,
       producer,
+      releaseDate,
       crawlButton,
-      charactersButton
+      crawlContainer
     );
+
+    crawlContainer.append(crawlText);
+
+    crawlButton.addEventListener("click", () => {
+      crawlContainer.classList.toggle("collapse");
+    });
+
     return film;
   });
 };

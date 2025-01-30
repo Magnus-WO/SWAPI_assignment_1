@@ -27,11 +27,6 @@
   min-height: 90vh;
   background-image: url(../assets/images/SWAPI_main_BG.webp);
 
-  /* display: grid;
-  grid-template-columns: repeat(11, minmax(50px, 1fr));
-  grid-template-rows: auto;
-  gap: 5rem; */
-
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -50,34 +45,48 @@
 /* Films */
 
 .card {
-  height: 600px;
+  min-height: 650px;
+  height: fit-content;
   width: 35%;
   background-color: none;
-  border: 2px solid white;
+  border: 2px solid rgba(255, 255, 255, 0.573);
   color: var(--font-color-tertiary);
+  position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: var(--spacing-medium);
   text-align: center;
 }
 
 .card__image {
-  height: 60%;
-  width: 70%;
+  height: 50%;
+  width: 55%;
 }
 
-.card__crawl-button,
-.card__characters-button {
+.card__crawl-button {
   width: 100%;
   height: 2rem;
   cursor: pointer;
   background-color: var(--background-color-cards);
   color: var(--font-color-tertiary);
 }
-.card__crawl-button:hover,
-.card__characters-button:hover {
+
+.card__crawl-button:hover {
   opacity: 0.8;
+}
+
+.card__crawl-container {
+  width: 100%;
+  height: 170px;
+  padding: 0 var(--spacing-small);
+
+  transition: height 0.4s ease-out;
+  overflow: hidden;
+}
+
+.collapse {
+  height: 0px;
 }
