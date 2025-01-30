@@ -1,3 +1,5 @@
+import filmPosters from "./filmsArray.js";
+
 //Fetching html elements
 const filmsButton = document.querySelector(".navbar__button--films");
 const main = document.querySelector(".main");
@@ -39,7 +41,13 @@ const render = (films) => {
 
     //Getting info
     title.textContent = film.title;
-    image.setAttribute("src", "");
+    filmPosters.forEach((poster) => {
+      if (film.title === poster.title) {
+        console.log(poster.src);
+
+        image.setAttribute("src", `${poster.src}`);
+      }
+    });
     episodeNr.textContent = `Episode ${film.episode_id}`;
     producer.textContent = `Produced by ${film.producer}`;
     crawlButton.textContent = "Opening Crawl";
@@ -59,19 +67,25 @@ const render = (films) => {
     producer.classList.add("card-property");
     producer.classList.add("card-property--3");
 
+    crawlButton.classList.add("card__crawl-button");
     crawlContainer.classList.add("card__crawl-container");
     crawlText.classList.add("card__crawl-text");
+
+    charactersButton.classList.add("card__characters-button");
+    charactersContainer.classList.add("card__characters-container");
+    charactersList.classList.add("card__characters-text");
 
     //Appending
     main.append(card);
     card.append(
+      episodeNr,
       title,
       image,
-      episodeNr,
       producer,
       crawlButton,
       charactersButton
     );
+    return film;
   });
 };
 

@@ -27,12 +27,17 @@
   min-height: 90vh;
   background-image: url(../assets/images/SWAPI_main_BG.webp);
 
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(11, minmax(50px, 1fr));
   grid-template-rows: auto;
-  gap: 5rem;
+  gap: 5rem; */
 
-  padding-bottom: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xxl);
+  padding: 5rem;
 }
 
 .intro__paragraph {
@@ -45,40 +50,34 @@
 /* Films */
 
 .card {
-  height: 450px;
-  width: 1fr;
-
+  height: 600px;
+  width: 35%;
+  background-color: none;
   border: 2px solid white;
   color: var(--font-color-tertiary);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: var(--spacing-medium);
   text-align: center;
 }
 
-.main .card:nth-child(1) {
-  grid-column: 3 / span 3;
-  grid-row: 2 / span 3;
+.card__image {
+  height: 60%;
+  width: 70%;
 }
-.main .card:nth-child(2) {
-  grid-column: 6 / span 3;
-  grid-row: 2 / span 3;
+
+.card__crawl-button,
+.card__characters-button {
+  width: 100%;
+  height: 2rem;
+  cursor: pointer;
+  background-color: var(--background-color-cards);
+  color: var(--font-color-tertiary);
 }
-.main .card:nth-child(3) {
-  grid-column: 3 / span 3;
-  grid-row: 5 / span 3;
-}
-.main .card:nth-child(4) {
-  grid-column: 6 / span 3;
-  grid-row: 5 / span 3;
-}
-.main .card:nth-child(5) {
-  grid-column: 3 / span 3;
-  grid-row: 8 / span 3;
-}
-.main .card:nth-child(6) {
-  grid-column: 6 / span 3;
-  grid-row: 8 / span 3;
+.card__crawl-button:hover,
+.card__characters-button:hover {
+  opacity: 0.8;
 }
