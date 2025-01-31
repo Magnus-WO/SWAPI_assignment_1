@@ -1,4 +1,4 @@
-import { render } from "./renderFilms";
+import { renderFilms } from "./renderFilms";
 //Fetching film data from API
 const fetchFilms = async () => {
   try {
@@ -7,7 +7,7 @@ const fetchFilms = async () => {
     const films = data.results;
     console.log(films);
 
-    render(films);
+    renderFilms(films);
     return films;
   } catch (error) {
     console.log(error, "Failed");

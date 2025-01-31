@@ -1,14 +1,13 @@
-import filmPosters from "./filmsArray.js";
-import fetchFilms from "./filmArray.js";
+import filmPosters from "./filmsPostersArray.js";
+import fetchFilms from "./fetchFilms.js";
 
 //Fetching html elements
 const filmsButton = document.querySelector(".navbar__button--films");
 const main = document.querySelector(".main");
-const showcase = document.querySelector(".showcase");
 
 //Function for rendering
 
-export const render = (films) => {
+export const renderFilms = (films) => {
   main.textContent = "";
   films.forEach((film) => {
     //Creating elements
