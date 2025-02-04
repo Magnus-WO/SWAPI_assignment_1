@@ -1,4 +1,4 @@
-import { renderFilms } from "./renderFilms";
+import { renderFilms } from "./renderFilms.js";
 //Fetching film data from API
 const fetchFilms = async () => {
   try {

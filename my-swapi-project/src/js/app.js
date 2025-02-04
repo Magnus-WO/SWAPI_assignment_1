@@ -1,6 +1,6 @@
 import fetchFilms from "./renderFilms.js";
-import filmPosters from "./filmsPostersArray.js";
 import fetchPeople from "./fetchPeople.js";
+import fetchPlanets from "./fetchPlanets.js";
 
 //Fetching html elements
 const filmsButton = document.querySelector(".navbar__button--films");
@@ -12,3 +12,4 @@ const main = document.querySelector(".main");
 
 filmsButton.addEventListener("click", fetchFilms);
 peopleButton.addEventListener("click", fetchPeople);
+planetsButton.addEventListener("click", fetchPlanets);
