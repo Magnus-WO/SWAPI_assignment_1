@@ -13,6 +13,8 @@ const renderPlanets = (planets) => {
     const card = document.createElement("div");
     const name = document.createElement("h1");
     const planetImage = document.createElement("img");
+    const infoContainer = document.createElement("div");
+
     const climate = document.createElement("p");
     const orbitalPeriode = document.createElement("p");
     const rotationPeriode = document.createElement("p");
@@ -26,24 +28,19 @@ const renderPlanets = (planets) => {
       }
     });
     climate.textContent = `Climate: ${planet.climate}`;
-    orbitalPeriode.textContent = `Length of year: ${planet.orbital_period}`;
-    rotationPeriode.textContent = `Length of day (in hours): ${planet.rotation_period}`;
+    orbitalPeriode.textContent = `Length of year: ${planet.orbital_period} days`;
+    rotationPeriode.textContent = `Length of day: ${planet.rotation_period} hours`;
     terrain.textContent = `Terrain: ${planet.terrain}`;
 
     //Adding classes
     card.classList.add("card");
     planetImage.classList.add("card__planet-image");
+    infoContainer.classList.add("card__planet-info");
 
     //Appending
     main.append(card);
-    card.append(
-      name,
-      planetImage,
-      orbitalPeriode,
-      rotationPeriode,
-      climate,
-      terrain
-    );
+    card.append(name, planetImage, infoContainer);
+    infoContainer.append(orbitalPeriode, rotationPeriode, climate, terrain);
   });
 
   return;
