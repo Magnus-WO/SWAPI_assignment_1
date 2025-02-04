@@ -37,8 +37,16 @@ export const renderFilms = (films) => {
 
     //Adding classes
     card.classList.add("card");
+    title.classList.add("card-property");
+    title.classList.add("card-property--1");
 
     image.classList.add("card__image");
+
+    episodeNr.classList.add("card-property");
+    episodeNr.classList.add("card-property--2");
+
+    producer.classList.add("card-property");
+    producer.classList.add("card-property--3");
 
     crawlButton.classList.add("card__crawl-button");
     crawlContainer.classList.add("card__crawl-container");
@@ -66,4 +74,6 @@ export const renderFilms = (films) => {
     return film;
   });
 };
-export default renderFilms;
+
+//Title, image, episode nr, release date, crawl, planets, characters
+export default fetchFilms;
