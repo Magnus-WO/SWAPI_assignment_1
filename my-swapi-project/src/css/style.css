@@ -20,7 +20,11 @@
 .navbar__button:hover {
   text-decoration: underline;
 }
-
+.feedback__paragraph {
+  background-color: var(--background-color-buttons);
+  color: var(--font-color-main);
+  text-align: center;
+}
 /* Main */
 .main {
   width: 100%;
@@ -47,7 +51,7 @@
   height: fit-content;
   width: 35%;
   background-color: none;
-  border: 2px solid rgba(255, 255, 255, 0.573);
+  border: 2px solid #ffffff92;
   color: var(--font-color-tertiary);
   position: relative;
 
@@ -147,4 +151,26 @@
   justify-content: center;
   align-items: center;
   gap: var(--spacing-small);
+}
+
+/* Responsiveness */
+@media screen and (max-width: 800px) {
+  .main {
+    padding: var(--spacing-xl);
+  }
+  .card {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navbar {
+    gap: var(--spacing-medium);
+  }
+  .main {
+    padding: var(--spacing-medium);
+  }
+  .card {
+    width: 100%;
+  }
 }

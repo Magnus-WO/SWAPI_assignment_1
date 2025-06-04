@@ -1,7 +1,7 @@
 import fetchFilms from "./renderFilms.js";
-import fetchPeople from "./fetchPeople.js";
-import fetchPlanets from "./fetchPlanets.js";
-import fetchVehicles from "./fetchVehicles.js";
+import fetchPeople from "./renderPeople.js";
+import fetchPlanets from "./renderPlanets.js";
+import fetchVehicles from "./renderVehicles.js";
 
 //Fetching html elements
 const filmsButton = document.querySelector(".navbar__button--films");

@@ -1,30 +1,40 @@
 import filmPosters from "./filmsPostersArray.js";
-// import fetchFilms from "./fetchFilms.js";
 
 //Fetching html elements
 const filmsButton = document.querySelector(".navbar__button--films");
 const main = document.querySelector(".main");
+const introParagraph = document.querySelector(".intro__paragraph");
+const feedBackParagraph = document.querySelector(".feedback__paragraph");
+
+let films = [];
 
 const fetchFilms = async () => {
   try {
     const response = await fetch("https://www.swapi.tech/api/films/");
     const data = await response.json();
 
-    const films = data.result;
-    renderFilms(films);
+    films = data.result;
+
     return films;
   } catch (error) {
-    console.log(error, "Failed");
+  } finally {
+    renderFilms(films);
   }
 };
 
 //Function for rendering
 const renderFilms = (films) => {
-  main.textContent = "";
   console.log(films.length);
-  if (!films) {
-    main.textContent = "Could not retrieve films, please try again later";
+  if (films.length === 0) {
+    feedBackParagraph.textContent =
+      "Could not retrieve films, please try again later";
+    setInterval(() => {
+      feedBackParagraph.textContent = "";
+    }, 5000);
+    return;
   } else {
+    main.textContent = "";
+    feedBackParagraph.textContent = "";
     films.forEach((film) => {
       //Creating elements
       const card = document.createElement("div");
