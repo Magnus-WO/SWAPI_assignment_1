@@ -1,4 +1,4 @@
-import planetsImages from "./planetsImages.js";
+import planetsImages from "./planetsImages 2.js";
 import fetchPlanets from "./fetchPlanets.js";
 
 //Fetching html elements

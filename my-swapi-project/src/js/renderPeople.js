@@ -1,5 +1,5 @@
 import fetchPeople from "./fetchPeople.js";
-import peopleImages from "./peopleImageArray.js";
+import peopleImages from "./peopleImageArray 2.js";
 const main = document.querySelector(".main");
 
 const renderPeople = (persons) => {
